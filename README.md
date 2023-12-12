@@ -4,6 +4,9 @@
 ![Static Badge](https://img.shields.io/badge/%20build-passing-brightgreen)
 ![Last Updated](https://img.shields.io/github/last-commit/Hasnat-Ahmed-Goheer/Auth-form?label=Last%20Updated&color=yellow)
 
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+
 
 ## Description
 

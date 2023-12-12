@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route,useNavigate, } from 'react-router-dom';
+import { UseContext } from './Context/ContextProvider';
+import Layout from './components/Layout/Layout';
+import UserProfile from './components/Profile/UserProfile';
+import AuthPage from './pages/AuthPage';
+import HomePage from './pages/HomePage';
 
 function App() {
+  const [state,dispatch] = UseContext();
+  const navigate = useNavigate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {!state.loggedIn && <Route path="/auth" element={<AuthPage />} />}
+       {state.loggedIn && <Route path="/profile" element={<UserProfile />} />}
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+    </Layout>
   );
 }
 
 export default App;
+  
